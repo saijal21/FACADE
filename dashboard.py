@@ -10,6 +10,8 @@ from explainerdashboard import ExplainerDashboard
 
 
 
-db = ExplainerDashboard.from_config("dashboard.yaml")
-server = db.server
-db.run(host='0.0.0.0', port=9050, use_waitress=True)
+db = ExplainerDashboard.from_config("dashboard.yaml").run(use_waitress=True)
+app = db.flask_server()
+# server = db.server
+
+# db.run(host='0.0.0.0', port=9050, use_waitress=True)
